@@ -59,8 +59,19 @@
     #define VERSION_AR VERSION
 #endif
 
+#ifndef A3A_COMPAT_MAJOR
+    #define A3A_COMPAT_MAJOR 12
+#endif
+
+#ifndef A3A_COMPAT_MINOR
+    #define A3A_COMPAT_MINOR 0
+#endif
+
 #ifndef VERSION_CONFIG
-    #define VERSION_CONFIG version = VERSION; versionStr = QUOTE(VERSION); versionAr[] = {VERSION_AR}
+    #define VERSION_CONFIG version = VERSION; \
+    versionStr = QUOTE(VERSION); \
+    versionAr[] = {VERSION_AR}; \
+    A3A_compatibility[] = {A3A_COMPAT_MAJOR, A3A_COMPAT_MINOR}
 #endif
 
 #define ADDON DOUBLES(PREFIX,COMPONENT)
