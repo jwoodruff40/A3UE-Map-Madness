@@ -66,9 +66,9 @@ switch (_mode) do
         } forEach (airportsX);
 
         // ! Reset enemy zone hiding variables
-        missionNamespace setVariable ["hideEnemyMarkers", nil];
-        missionNamespace setVariable ["revealedZones", nil];
-        missionNamespace setVariable ["markersImmune", nil];
+        missionNamespace setVariable ["hideEnemyMarkers", nil, true];
+        missionNamespace setVariable ["revealedZones", nil, true];
+        missionNamespace setVariable ["markersImmune", nil, true];
     };
 
     case ("mouseUp"):
@@ -95,7 +95,7 @@ switch (_mode) do
 
         private _markerSide = sidesX getVariable [_nearMarker, Occupants];
         private _wasInvader = _markerSide isEqualTo Invaders;
-        sidesX setVariable [_nearMarker, [Invaders, Occupants] select _wasInvader];
+        sidesX setVariable [_nearMarker, [Invaders, Occupants] select _wasInvader, true];
         [_nearMarker] call A3A_fnc_mrkUpdate;
 
         if (_nearMarker in airportsX) then {
